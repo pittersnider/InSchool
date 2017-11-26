@@ -41,3 +41,6 @@ You should also be noted that this is a basic and raw structure; some another de
 
 - Table '**menu**'  
   `shift, weekday, name`
+
+- Table '**log**'  
+  `id, priority (low, medium, high), type, success, code, detail, createdAt`
