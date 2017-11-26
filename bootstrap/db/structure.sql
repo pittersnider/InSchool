@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `user` (
+      `id` INT(12) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      `passport` VARCHAR(40) NOT NULL,
+      `joined` TINYINT(1) NOT NULL DEFAULT 0,
+      `name` VARCHAR(50) NOT NULL,
+      `email` VARCHAR(50) NOT NULL,
+      `role` SMALLINT(3) NOT NULL,
+      `status` SMALLINT(3) NOT NULL,
+      `createdAt` DATETIME NOT NULL DEFAULT NOW(),
+      `updatedAt` DATETIME NULL DEFAULT NULL ON UPDATE NOW()
+);
