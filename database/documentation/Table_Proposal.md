@@ -35,3 +35,6 @@ You should also be noted that this is a basic and raw structure; some another de
 
 - Table '**subscription_request**'  
   `id, author_id, detail, attachment, status`
+
+- Table '**language**'  
+  `code, name, version, dictionary (json)`
