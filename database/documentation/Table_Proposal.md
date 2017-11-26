@@ -38,3 +38,6 @@ You should also be noted that this is a basic and raw structure; some another de
 
 - Table '**language**'  
   `code, name, version, dictionary (json)`
+
+- Table '**menu**'  
+  `shift, weekday, name`
