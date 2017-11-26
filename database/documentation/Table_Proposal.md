@@ -21,6 +21,9 @@ You should also be noted that this is a basic and raw structure; some another de
 - Table '**exam_knowledge**'  
   `exam_id, knowledge_id, createdAt`
 
+- Table '**user_exam**'  
+  `exam_id, user_id, classroom_id, createdAt`
+
 - Table '**user_report**'  
   `user_id, quarter, detail, createdAt`
 
