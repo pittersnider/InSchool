@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
-  config.vm.box = "bento/ubuntu-17.04"
+  config.vm.box = "ubuntu/trusty64"
 
   config.vm.hostname = CONF['vm']['name']
   config.vm.network "private_network", type: "dhcp"
@@ -26,8 +26,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   cache_apt = vcache(config.vm.box)
   config.vm.synced_folder cache_apt, "/var/cache/apt/archives/", type: "rsync"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder ".", "/srv/shared", type: "nfs", nfs_udp: false
-
+  config.vm.synced_folder ".", "/project", type: "nfs", nfs_udp: false
+  
   config.vm.provision "shell", path: "./bootstrap/build.sh"
   config.vm.provision "shell", run: "always", inline: "IP=$(ifconfig eth1 | grep 'inet addr' | awk '{print $2}' | sed 's/addr://'); echo \"Running: ${IP}\""
 end
