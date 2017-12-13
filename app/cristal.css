@@ -1,0 +1,4 @@
+/* @@ On hover something, turns it bold. */
+.gb-bold:hover {
+    font-weight: bold;
+}
