@@ -1,4 +1,49 @@
 /* @@ On hover something, turns it bold. */
+
 .gb-bold:hover {
     font-weight: bold;
+}
+
+
+/* @@ The paragraph of consent (while registering on platform) */
+
+.app__consent {
+    text-align: center;
+}
+
+.app__welcome_title {
+    color: #019;
+}
+
+.gb-loader {
+    position: relative;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    width: 92px;
+    height: 92px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-left: 45%;
+    margin-bottom: 40px;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

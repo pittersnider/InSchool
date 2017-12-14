@@ -10,7 +10,7 @@
             <div class="account-box">
               <div class="account-logo-box">
                 <h2 class="text-uppercase text-center">
-                  <a href="/overview" class="logo">
+                  <a href="/login" class="logo">
                     <span class="logo-large">
                       <i class="mdi mdi-radar"></i>
                       {{ label.title }}
@@ -19,21 +19,26 @@
                 </h2>
               </div>
               <div class="account-content">
-                <div id="bd-signin" class="form-horizontal">
-                  <div class="form-group m-b-20 row">
+                <form class="form-horizontal" action="#">
+
+                  <div class="form-group row m-b-20">
                     <div class="col-12">
-                      <label for="emailaddress">Identificador</label>
-                      <input class="form-control" id="emailaddress" required="" placeholder="Seu e-mail ou celular">
+                      <label for="username">Identificação</label>
+                      <input class="form-control" type="email" id="username" required="" placeholder="Seu nome completo">
                     </div>
                   </div>
 
                   <div class="form-group row m-b-20">
                     <div class="col-12">
-                      <a href="page-recoverpw.html" class="text-muted pull-right">
-                        <small>Precisa de ajuda?</small>
-                      </a>
-                      <label for="password">Palavra passe</label>
-                      <input class="form-control" type="password" required="" id="password" placeholder="Digite a sua senha">
+                      <label for="emailaddress">Convite</label>
+                      <input class="form-control" type="email" id="emailaddress" required="" placeholder="O e-email fornecido pela escola">
+                    </div>
+                  </div>
+
+                  <div class="form-group row m-b-20">
+                    <div class="col-12">
+                      <label for="password">Segurança</label>
+                      <input class="form-control" type="password" required="" id="password" placeholder="Escolha uma senha para sua conta">
                     </div>
                   </div>
 
@@ -41,9 +46,9 @@
                     <div class="col-12">
 
                       <div class="checkbox checkbox-success">
-                        <input id="remember" type="checkbox" checked="">
-                        <label for="remember">
-                          Lembrar meus dados
+                        <label class="app__consent">
+                          Ao registrar-se, você concorda que leu, entendeu e aceitou os
+                          <a href="#">Termos de Serviço</a>, concluindo assim, seu registro.
                         </label>
                       </div>
 
@@ -52,17 +57,17 @@
 
                   <div class="form-group row text-center m-t-10">
                     <div class="col-12">
-                      <button id="ca-signin" class="btn btn-block btn-gradient waves-effect waves-light gb-bold">Entrar</button>
+                      <button class="btn btn-block btn-gradient waves-effect waves-light gb-bold" type="submit">Concluir registro</button>
                     </div>
                   </div>
 
-                </div>
+                </form>
 
                 <div class="row m-t-50">
                   <div class="col-sm-12 text-center">
-                    <p class="text-muted">Precisa de uma conta?
-                      <a href="page-register.html" class="text-dark m-l-5">
-                        <b>Registre-se</b>
+                    <p class="text-muted">Já possui uma conta?
+                      <a href="/login" class="text-dark m-l-5">
+                        <b>Faça Login</b>
                       </a>
                     </p>
                   </div>

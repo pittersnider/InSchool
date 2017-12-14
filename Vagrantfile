@@ -1,7 +1,7 @@
 require "yaml"
 require "fileutils"
 
-CONF = YAML.load(File.open(File.join(File.dirname(__FILE__), "./bootstrap/vm/config.yml"), File::RDONLY).read)
+CONF = YAML.load(File.open(File.join(File.dirname(__FILE__), "./env/vm/config.yml"), File::RDONLY).read)
 
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder ".", "/project", type: "nfs", nfs_udp: false
   
-  config.vm.provision "shell", path: "./bootstrap/build.sh"
+  config.vm.provision "shell", path: "./env/build.sh"
   config.vm.provision "shell", run: "always", inline: "IP=$(ifconfig eth1 | grep 'inet addr' | awk '{print $2}' | sed 's/addr://'); echo \"Running: ${IP}\""
 end
 
