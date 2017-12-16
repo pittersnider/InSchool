@@ -1,6 +1,8 @@
 # vagrant
 .vagrant/
 
+.vscode
+
 # Logs
 logs
 *.log

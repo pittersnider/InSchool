@@ -87,7 +87,7 @@
             "error"
         ],
         "array-bracket-spacing": [
-            2,
+            1,
             "always",
             {
                 "objectsInArrays": true,

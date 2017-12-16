@@ -61,6 +61,6 @@ server.use(passport.initialize());
 server.use(passport.session());
 server.use('/api/v1', require('./services/routes'));
 server.use((req, res) => res.status(404).send('Essa pagina ainda nao existe :)'));
-server.listen(4000, () => console.log('Listening on 127.0.0.1:80'));
+server.listen(4000 + process.env.NODE_APP_INSTANCE, () => console.log('Listening on 127.0.0.1:80'));
 
 module.exports = server;
