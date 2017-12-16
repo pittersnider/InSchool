@@ -95,6 +95,18 @@ Giantboard.controllers = {
     Giantboard.heartbeat('header', 'footer', [ 'overview', '#stack' ]);
     Giantboard.display('body, footer, header');
     Giantboard.breadcrumb('Meu Space', 'Visão Geral');
+
+    if (!Giantboard.first) {
+      setTimeout(function () {
+        $('.app__welcome').fadeOut(600);
+      }, 5000);
+
+      Giantboard.first = true;
+    } else {
+      $('.app__welcome').hide();
+    }
+
+    $('#calendar').fullCalendar();
   },
 
   check: function (ctx, next) {
@@ -190,10 +202,6 @@ Giantboard.reloadViews(function (error, result) {
   }
 
   $(document).ready(function () {
-    setTimeout(function () {
-      $('.app__welcome').fadeOut(600);
-    }, 80000);
-
     Giantboard.initRouter();
   });
 
