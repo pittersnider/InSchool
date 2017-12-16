@@ -15,7 +15,6 @@ function cacheViews() {
     const viewName = name.split('.html')[0];
     const source = fs.readFileSync(__dirname + '/views/' + name, { encoding: 'utf8', });
     app.views[viewName] = htmlmin(source);
-    console.log('caching view %s', name);
   }
 
   fs.readdirSync(__dirname + '/views').forEach(loadView);
@@ -48,6 +47,8 @@ app.connection = async (options = { isTransaction: false, }) => {
   }
 };
 
+const port = 4000 + +process.env.NODE_APP_INSTANCE;
+
 const server = express();
 app.core = require('./core');
 app.server = server;
@@ -61,6 +62,5 @@ server.use(passport.initialize());
 server.use(passport.session());
 server.use('/api/v1', require('./services/routes'));
 server.use((req, res) => res.status(404).send('Essa pagina ainda nao existe :)'));
-server.listen(4000 + process.env.NODE_APP_INSTANCE, () => console.log('Listening on 127.0.0.1:80'));
-
+server.listen(port);
 module.exports = server;
