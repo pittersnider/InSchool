@@ -1,9 +1,30 @@
 // @@ Setup nunjucks
 nunjucks.configure({ web: { async: true } });
 
+String.prototype.format = function () {
+  const args = arguments;
+  return this.replace(/{(\d+)}/g, function (match, number) {
+    return typeof args[number] != 'undefined'
+      ? args[number]
+      : match
+    ;
+  });
+};
+
+String.format = function (format) {
+  const args = Array.prototype.slice.call(arguments, 1);
+  return format.replace(/{(\d+)}/g, function (match, number) {
+    return typeof args[number] != 'undefined'
+      ? args[number]
+      : match
+    ;
+  });
+};
+
 // @@ Setup variables
 Giantboard = {
   root: 'http://giantboard.vm',
+  apps: {},
   label: {
     title: 'Meu Space',
     company: 'Cassiano'
@@ -107,7 +128,12 @@ Giantboard.controllers = {
     }
 
     $('#app__calendar_overview').fullCalendar({
-      weekends: false
+      timezone: 'America/Sao_Paulo',
+      timeFormat: '(HH):00',
+      weekends: false,
+      selectable: false,
+      defaultDate: moment(),
+      events: String.format('/api/v1/person/{0}/calendar', Giantboard.session.user.id)
     });
   },
 
@@ -237,6 +263,7 @@ $('body').on('click', '#auth__logout', Giantboard.events.logout);
       }
     });
   }
+
   function initScrollbar() {
     $('.slimscroll').slimscroll({
       height: 'auto',
@@ -245,6 +272,7 @@ $('body').on('click', '#auth__logout', Giantboard.events.logout);
       color: '#9ea5ab'
     });
   }
+
   function init() {
     initNavbar();
     initScrollbar();

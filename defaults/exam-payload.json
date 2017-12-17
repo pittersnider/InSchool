@@ -1,0 +1,10 @@
+{
+  "id": "EX1",
+  "title": "Prova de Matematica",
+  "start": "2017-12-17",
+  "url": "https://www.giantboard.com.br/exam/1",
+  "editable": false,
+  "eventDurationEditable": false,
+  "allDay": true,
+  "payload": { "id": 1, "user": 1 }
+}

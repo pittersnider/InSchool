@@ -16,5 +16,7 @@ router.get('/views', function (request, response) {
 
 // @@ Controla todos os serviços de autenticação e de sessão
 router.use('/session', require('./authenticate'));
+router.use('/user', require('./user'));
+router.use('/person', require('./user'));
 
 module.exports = router;
