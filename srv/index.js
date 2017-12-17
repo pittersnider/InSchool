@@ -61,6 +61,6 @@ server.use(bodyParser.urlencoded({ extended: false, }));
 server.use(passport.initialize());
 server.use(passport.session());
 server.use('/api/v1', require('./services/routes'));
-server.use((req, res) => res.status(404).send('Essa pagina ainda nao existe :)'));
+server.use((req, res) => res.status(404).send(app.views['404']));
 server.listen(port);
 module.exports = server;
