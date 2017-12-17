@@ -4,6 +4,10 @@
     font-weight: bold;
 }
 
+#app__calendar_overview {
+    padding-bottom: 2em;
+}
+
 
 /* @@ The paragraph of consent (while registering on platform) */
 

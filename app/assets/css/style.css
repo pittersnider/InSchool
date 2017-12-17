@@ -47,7 +47,8 @@ File: Main Css File
   max-width: 95%; }
 
 .wrapper {
-  padding-top: 120px; }
+  /* padding-top: 120px; */
+ }
 
 .page-title-box {
   padding: 22px 0; }
@@ -58,7 +59,7 @@ File: Main Css File
     font-weight: 600; }
 
 #topnav {
-  position: fixed;
+  /* position: fixed; */
   right: 0;
   left: 0;
   top: 0;
