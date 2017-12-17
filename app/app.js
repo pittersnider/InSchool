@@ -89,7 +89,7 @@ Giantboard = {
     page('/overview', Giantboard.getController('check'), Giantboard.getController('overview'));
     page('/login', Giantboard.getController('login'));
     page('/register', Giantboard.getController('register'));
-    page('/', Giantboard.getController('check'));
+    page('/', Giantboard.getController('check'), () => page.redirect('/overview'));
     page.start();
   }
 };
