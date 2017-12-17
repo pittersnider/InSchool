@@ -106,7 +106,9 @@ Giantboard.controllers = {
       $('.app__welcome').hide();
     }
 
-    $('#calendar').fullCalendar();
+    $('#app__calendar_overview').fullCalendar({
+      weekends: false
+    });
   },
 
   check: function (ctx, next) {
@@ -118,6 +120,9 @@ Giantboard.controllers = {
     return $.get({
       type: 'GET',
       url: '/api/v1/session',
+      xhrFields: {
+        withCredentials: true
+      },
 
       success: function (data) {
         Giantboard.session = data;
@@ -150,6 +155,9 @@ Giantboard.events = {
       url: '/api/v1/session/login',
       data: items,
       dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      },
 
       success: function (data) {
         Giantboard.session = { user: data };
